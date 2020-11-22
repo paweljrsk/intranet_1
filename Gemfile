@@ -40,6 +40,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'statesman'
 gem 'devise'
+gem 'bootstrap', '~> 5.0.0.alpha3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
