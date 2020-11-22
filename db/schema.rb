@@ -10,11 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201122124932) do
+ActiveRecord::Schema.define(version: 20201122190304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "long_description"
+    t.string "photo"
+    t.bigint "product_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_type_id"], name: "index_posts_on_product_type_id"
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "product_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_category_id"], name: "index_product_types_on_product_category_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +53,6 @@ ActiveRecord::Schema.define(version: 20201122124932) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "posts", "product_types"
+  add_foreign_key "product_types", "product_categories"
 end
