@@ -39,6 +39,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'statesman'
+gem 'devise'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
