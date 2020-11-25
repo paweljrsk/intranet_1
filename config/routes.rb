@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'posts#index'
   get 'categories/index'
 
   get 'categories/show'
