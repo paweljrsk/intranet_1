@@ -1,5 +1,4 @@
-<h1>Produkty</h1>
-
+<h1>Typy produktów</h1>
 
 <table class="table">
   <thead>
@@ -9,10 +8,10 @@
     </tr>
   </thead>
   <tbody>
-          <% @posts.each do |post|%>
+          <% @product_types.each do |pt|%>
             <tr>
             <th scope="row">1</th>
-            <td> <%= post.name%></td>
+            <td> <%= pt.name%></td>
             </tr>
         <% end %>
   </tbody>
