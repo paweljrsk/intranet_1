@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @product_categories = ProductCategory.find(1)
+    @product_categories = ProductCategory.all
   end
 
   def show

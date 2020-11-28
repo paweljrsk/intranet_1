@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  resources :product_types
 
-  root to: 'posts#index'
+  root to: 'product_types#index'
   get 'categories/index'
 
   get 'categories/show'
