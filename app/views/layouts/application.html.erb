@@ -16,29 +16,18 @@
         <a class="navbar-brand" href="<%=root_path %>">Robo </a>
       </div>
         <ul class='nav navbar-nav'>
-          <li <%  if [params[:controller], params[:action]] == ["products", "index"] %> class="active" <%end%>> <%= link_to "Start", root_path %> </li>
-          <li <%  if [params[:controller], params[:action]] == ["static", "privacy"] %> class="active" <%end%>> <%= link_to "Polityka prywatności", privacy_path %> </li>
-          <li <%  if [params[:controller], params[:action]] == ["static", "terms"] %> class="active" <%end%>> <%= link_to "Regulamin", terms_path %> </li>
-          <li <%  if [params[:controller], params[:action]] == ["static", "shipping"] %> class="active" <%end%>> <%= link_to "Dostawa", shipping_path %> </li>
-          <li <%  if [params[:controller], params[:action]] == ["static", "about"] %> class="active" <%end%>> <%= link_to "O sklepie", about_path %> </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to cart_path do %>
-            <span class="fa fa-shopping-cart"></span>
-            <%= current_cart.line_items.map { |e| e.quantity }.sum %>
-            produktów za
-            <%= number_to_currency(current_cart.line_items.map { |e| e.full_price }.sum) %>
+          <% ProductCategory.all.each do |pc|%>
+            <li <%  if [params[:controller], params[:action]] == ["categories", "index"] %> class="active" <%end%>> <%= link_to pc.name, categories_path(pc) %> </li>
           <% end %>
-        </li>
-      </ul>
+        </ul>
+
       </div>
     </nav>
 
 
     <div class='container-fluid'>
       <div class='row'>
-        <div class='col-md-1'>
+        <div class='col-md-2'>
           <h3>Kategorie</h2>
           <ul class='nav nav-sidebar'>
             <% ProductType.all.each do |pt|%>
@@ -48,7 +37,7 @@
             <% end %>
           </ul>
         </div>
-        <div class='col-md-2'>
+        <div class='col-md-9'>
           <%= yield %>
         </div>
       </div>
