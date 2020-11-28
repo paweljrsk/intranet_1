@@ -8,4 +8,5 @@ class ProductTypesController < ApplicationController
 
   def edit
   end
+  
 end
