@@ -19,9 +19,3 @@
      color: #fff;
      background-color: #428bca;
  }
-
- .wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}

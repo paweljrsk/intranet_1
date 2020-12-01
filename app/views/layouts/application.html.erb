@@ -13,14 +13,13 @@
   <nav class='navbar navbar-inverse navbar-static-top'>
     <div class='container'>
       <div class='navbar-header'>
-        <a class="navbar-brand" href="<%=root_path %>">Robo </a>
+        <%= image_tag("expander-logo.png", size: "134x52", alt: "Edit Entry") %>
       </div>
         <ul class='nav navbar-nav'>
           <% ProductCategory.all.each do |pc|%>
-            <li <%  if [params[:controller], params[:action]] == ["categories", "index"] %> class="active" <%end%>> <%= link_to pc.name, categories_path(pc) %> </li>
+            <li <%  if [params[:controller], params[:action], params["id"]] == ["categories", "show", "1"] %> class="active" <%end%>> <%= link_to pc.name, category_path(pc) %> </li>
           <% end %>
         </ul>
-
       </div>
     </nav>
 
