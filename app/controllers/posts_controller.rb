@@ -4,5 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @product_type = @post.product_types
   end
 end

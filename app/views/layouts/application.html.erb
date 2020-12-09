@@ -10,10 +10,10 @@
   </head>
 
   <body>
-  <nav class='navbar navbar-inverse navbar-static-top'>
+  <nav class='navbar navbar-inverse navbar-static-left'>
     <div class='container'>
       <div class='navbar-header'>
-        <%= image_tag("expander-logo.png", size: "134x52", alt: "Edit Entry") %>
+        <%= image_tag("expander-logo.png", size: "150x60", alt: "Edit Entry") %>
       </div>
         <ul class='nav navbar-nav'>
           <% ProductCategory.all.each do |pc|%>
@@ -28,9 +28,9 @@
         <div class='col-md-2'>
           <h3>Kategorie</h2>
           <ul class='nav nav-sidebar'>
-            <% ProductType.all.each do |pt|%>
+            <% ProductType.where("product_category_id = ?", params[:id]).each do |pt|%>
             <li>
-              <%=link_to pt.name, product_types_path(pt) %>
+              <%=link_to pt.name, category_product_type_path(pt) %>
             </li>
             <% end %>
           </ul>

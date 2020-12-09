@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :product_type
+  belongs_to :product_types
 
   validates :title, presence: true
   validates :description, presence: true

@@ -1,18 +1,1 @@
-<h1>Typy produktów</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Nr</th>
-      <th scope="col">Name</th>
-    </tr>
-  </thead>
-  <tbody>
-          <% @product_types.each do |pt|%>
-            <tr>
-            <th scope="row">1</th>
-            <td> <%= pt.name%></td>
-            </tr>
-        <% end %>
-  </tbody>
-</table>

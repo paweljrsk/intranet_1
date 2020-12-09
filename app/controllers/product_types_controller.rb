@@ -4,6 +4,8 @@ class ProductTypesController < ApplicationController
   end
 
   def show
+    @product_type = ProductType.find(params[:id])
+    @posts = @product_type.posts.page(params[:page]).per(6)
   end
 
   def edit

@@ -1,0 +1,26 @@
+<% posts.all.each_slice(3) do |slice|%>
+	<div class="row">
+		<% slice.each do |post| %>
+			<div class="col-md-11">
+				<div class="thumbnail">
+					<%= link_to posts_path do %>
+						<%= image_tag Faker::Placeholdit.image('640x480', 'jpg', 'cccccc') %>
+					<% end %> 
+					<div class="caption">
+						<h3><%=  link_to post.title, post_path(post) %></h3>
+						<p><%= simple_format(truncate(post.description, length: 90)) %></p>
+						<% if user_signed_in? %>
+							<%= link_to "Szczegóły", posts_path, class:"btn btn-primary"%>
+						<%  else %>
+							<p class=”lead”>
+							Musisz się zalogować, aby dodać wpis.
+							<%= link_to "Zaloguj się", new_user_session_path %>
+							</p>
+						<% end %>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+<% end %>
