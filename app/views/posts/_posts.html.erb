@@ -11,7 +11,7 @@
 						<p><%= simple_format(truncate(post.description, length: 90)) %></p>
 						<% if user_signed_in? %>
 							<%= link_to "Szczegóły", posts_path, class:"btn btn-primary"%>
-						<%  else %>
+						<% else %>
 							<p class=”lead”>
 							Musisz się zalogować, aby dodać wpis.
 							<%= link_to "Zaloguj się", new_user_session_path %>
