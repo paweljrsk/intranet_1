@@ -30,7 +30,7 @@
           <ul class='nav nav-sidebar'>
             <% ProductType.where("product_category_id = ?", params[:id]).each do |pt|%>
             <li>
-              <%=link_to pt.name, category_product_type_path(pt) %>
+              <%=link_to pt.name, category_product_type_path(pt.product_category_id, pt.id) %>
             </li>
             <% end %>
           </ul>
