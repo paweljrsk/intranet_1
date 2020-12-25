@@ -1,10 +1,9 @@
-class Admin::CategoriesController < Admin::BaseController
-  def index
-  end
+module Admin
+  class CategoriesController < BaseController 
+    def index; end
 
-  def new
-  end
+    def new; end
 
-  def edit
+    def edit; end
   end
 end
