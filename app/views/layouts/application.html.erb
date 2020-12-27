@@ -17,7 +17,7 @@
       </div>
         <ul class='nav navbar-nav'>
           <% ProductCategory.all.each do |pc|%>
-            <li <%  if [params[:controller], params[:action], params["id"]] == ["categories", "show", "1"] %> class="active" <%end%>> <%= link_to pc.name, category_path(pc) %> </li>
+            <li <% if [params[:controller], params[:action], params[:category_id]] == ["categories", "show", "1"] %> class="active" <%end%>> <%= link_to pc.name, category_product_types_path(pc.id) %> </li>
           <% end %>
         </ul>
       </div>
@@ -26,11 +26,11 @@
     <div class='container-fluid'>
       <div class='row'>
         <div class='col-md-2'>
-          <h3>Kategorie</h2>
+          <h3>Kategorie</h3>
           <ul class='nav nav-sidebar'>
-            <% ProductType.where("product_category_id = ?", params[:id]).each do |pt|%>
+            <% ProductType.where("product_category_id = ?", params[:category_id]).each do |pt|%>
             <li>
-              <%=link_to pt.name, category_product_type_path(pt) %>
+              <%=link_to pt.name, category_product_type_path(pt.product_category_id, pt.id) %>
             </li>
             <% end %>
           </ul>

@@ -1,5 +1,5 @@
 class ProductType < ApplicationRecord
-  belongs_to :product_categories
+  belongs_to :product_category
   has_many :posts
 
   validates :name, presence: true
