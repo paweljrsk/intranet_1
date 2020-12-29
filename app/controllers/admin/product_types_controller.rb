@@ -1,10 +1,9 @@
-class Admin::ProductTypesController < Admin::BaseController
-  def index
-  end
+module Admin
+  class ProductTypesController < Admin::BaseController
+    def index; end
 
-  def new
-  end
+    def new; end
 
-  def edit
+    def edit; end
   end
 end
