@@ -39,8 +39,10 @@ gem 'ransack'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'statesman'
+gem 'devise-i18n'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

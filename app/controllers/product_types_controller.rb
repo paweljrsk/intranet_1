@@ -1,5 +1,6 @@
 class ProductTypesController < ApplicationController
   def index
+    @category = ProductCategory.find(params[:category_id])
     @product_types = ProductType.all
     @category_posts = ProductCategory.find(params[:category_id]).posts
   end

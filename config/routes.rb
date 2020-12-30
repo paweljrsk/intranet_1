@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   root to: 'posts#index'
+
   resources :product_types, only: [:index, :show]
   resources :categories, only: [:index, :show]
   resources :posts, only: [:index, :show]

@@ -1,7 +1,7 @@
-<% posts.all.each_slice(3) do |slice|%>
+<% posts.each_slice(3) do |slice|%>
 	<div class="row">
 		<% slice.each do |post| %>
-			<div class="col-md-11">
+			<div class="col-md-4">
 				<div class="thumbnail">
 					<%= link_to posts_path do %>
 						<%= image_tag Faker::Placeholdit.image('640x480', 'jpg', 'cccccc') %>

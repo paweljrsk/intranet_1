@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+ .nav-navbar > .active > a,
+ .nav-navbar > .active > a:hover,
+ .nav-navbar > .active > a.focus {
+     color: #fff;
+     background-color: #428bca;
+ }
+ 
  .nav-sidebar > .active > a,
  .nav-sidebar > .active > a:hover,
  .nav-sidebar > .active > a.focus {
