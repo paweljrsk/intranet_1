@@ -1,2 +1,34 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+<h2>Kategoria</h2>
+
+
+
+<div>
+  <table class="table table-striped">
+  <thead>
+  <tr>
+  <th>Tytuł</th>
+  <th>Akcje</th>
+  <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+          <td>
+            <%= category.name %>
+          </td>
+          <td>
+            <%= link_to "Edycja", edit_admin_category_path(category), class: "btn btn-default btn-xs" %>
+            <%= link_to "Usuń", admin_category_path(category), method: :delete,  class: "btn btn-danger btn-xs", data: {confirm: 'Czy na pewno chcesz usunać post?'} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>
+
+<div>
+  <%= link_to new_admin_category_path, class: "btn btn-primary" do %>
+  <span class="fa fa-plus"></span> Dodaj nową kategorię
+  <% end %>
+</div>

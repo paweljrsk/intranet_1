@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, @category] do |f| %>
+<div class="form-group">
+ <%= f.input :name %>
+   </div>
+
+   <div>
+ <%= f.submit "Zapisz", class: "btn btn-primary" %>
+  <%= link_to "Anuluj", :back %>
+  </div>
+<% end %>

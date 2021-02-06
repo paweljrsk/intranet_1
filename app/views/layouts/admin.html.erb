@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Intranet – Admin</title>
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class='navbar navbar-inverse navbar-static-left'>
+    <div class="container">
+          <div class='navbar-header'>
+            <%= link_to image_tag("expander-logo.png", size: "150x60", alt: "Edit Entry"), posts_path %>
+          </div>
+
+        <ul class="nav navbar-nav">
+          <li <% if params[:controller] == "admin/posts" %>class="active"<% end %>><%= link_to "Posty", admin_posts_path %></li>
+          <li <% if params[:controller] == "admin/categories" %>class="active"<% end %>><%= link_to "Kategorie", admin_categories_path  %></li>
+          <li <% if params[:controller] == "admin/product_types" %>class="active"<% end %>><%= link_to "Typy produktów", admin_product_types_path %></li>
+       
+        </ul>
+
+
+
+        <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %></li>
+        </ul>
+    </div>
+
+  </nav>
+  <div class="container-fluid">
+    <%= bootstrap_flash %>
+    <%= yield %>
+  </div>
+</body>
+</html>

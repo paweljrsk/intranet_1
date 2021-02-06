@@ -1,11 +1,12 @@
-class Admin::BaseController < ApplicationController
-    layout 'admin'
+class Admin::BaseController < ApplicationController
+    layout 'admin'
     
-    before_action :authenticate
+    before_action :authenticate
     
-    def authenticate
-        authenticate_or_request_with_http_basic 'Podaj hasło' do |name, password|
-            name == 'username' && password == 'secret'
+    def authenticate
+        if not user_signed_in?
+            redirect_to new_user_session_path
+          end
     end
+end
     
-    end

@@ -10,34 +10,40 @@
   </head>
 
   <body>
-  <nav class='navbar navbar-inverse navbar-static-left'>
-    <div class='container'>
-      <div class='navbar-header'>
-        <%= image_tag("expander-logo.png", size: "150x60", alt: "Edit Entry") %>
-      </div>
-        <ul class='nav navbar-nav'>
-          <% ProductCategory.all.each do |pc|%>
-            <li <% if params[:category_id] == pc.id.to_s %> class="active" <%end%>> <%= link_to pc.name, category_product_types_path(pc.id) %> </li>
-          <% end %>
-        </ul>
-      </div>
-    </nav>
+    <% if user_signed_in?%>
+      <nav class='navbar navbar-inverse navbar-static-left'>
+        <div class='container'>
+          <div class='navbar-header'>
+            <%= image_tag("expander-logo.png", size: "150x60", alt: "Edit Entry") %>
+          </div>
+            <ul class='nav navbar-nav'>
+              <% ProductCategory.all.each do |pc|%>
+                <li <% if params[:category_id] == pc.id.to_s %> class="active" <%end%>> <%= link_to pc.name, category_product_types_path(pc.id) %> </li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Panel admina", admin_posts_path, method: :get %></li>
+              <li><%= link_to "Wyloguj", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        </nav>
 
-    <div class='container-fluid'>
-      <div class='row'>
-        <div class='col-md-2'>
-          <h4>Kategorie</h4>
-          <ul class='nav nav-sidebar'>
-            <% ProductType.where("product_category_id = ?", params[:category_id]).each do |pt|%>
-            <li <% if params[:id] == pt.id.to_s %> class="active" <%end%>> <%= link_to pt.name, category_product_type_path(pt.product_category_id, pt.id) %> </li>
-            <% end %>
-          </ul>
+        <div class='container-fluid'>
+          <div class='row'>
+            <div class='col-md-2'>
+              <h4>Kategorie</h4>
+              <ul class='nav nav-sidebar'>
+                <% ProductType.where("product_category_id = ?", params[:category_id]).each do |pt|%>
+                <li <% if params[:id] == pt.id.to_s %> class="active" <%end%>> <%= link_to pt.name, category_product_type_path(pt.product_category_id, pt.id) %> </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+            <div class='col-md-9'>
+              <%= yield %>
+            </div>
+          </div>
         </div>
-        <div class='col-md-9'>
-          <%= yield %>
-        </div>
-      </div>
-    </div>
 
   </body>
 </html>

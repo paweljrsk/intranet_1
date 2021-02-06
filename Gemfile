@@ -1,8 +1,8 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  "http://github.com/#{repo_name}.git"
 end
 
 
@@ -42,6 +42,8 @@ gem 'statesman'
 gem 'devise-i18n'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'data-confirm-modal'
+
 
 
 # Use Capistrano for deployment

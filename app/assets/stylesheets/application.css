@@ -14,6 +14,10 @@
  *= require_self
  */
 
+.title{
+    font-size: 17px;
+}
+
  .nav-navbar > .active > a,
  .nav-navbar > .active > a:hover,
  .nav-navbar > .active > a.focus {
@@ -24,6 +28,55 @@
  .nav-sidebar > .active > a,
  .nav-sidebar > .active > a:hover,
  .nav-sidebar > .active > a.focus {
-     color: #fff;
-     background-color: #428bca;
+     color: black;
+     background-color: lightgrey;
  }
+
+
+@import "simple_form-bootstrap/simple_form-bootstrap";
+
+/* display this row with flex and use wrap (= respect columns' widths) */
+
+.a-primary {
+    color:black;
+    font-weight: bold ; 
+}
+
+.h3 {
+    font-size: 12px;
+}
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  
+  /* vertical spacing between columns */
+  
+  [class*="col-"] {
+    margin-bottom: 30px;
+  }
+  
+  .content {
+    height: 100%;
+    padding: 20px 20px 10px;
+    color: #fff;
+  }
+  
+
+  
+  body {
+    padding: 20px 0;
+    font-family: Roboto, sans-serif;
+  }
+  
+  .content h3 {
+    margin-top: 0px;
+    font-weight: 300;
+  }
+  
+  h1 {
+    font-weight: 300;
+    margin-bottom: 40px;
+  }

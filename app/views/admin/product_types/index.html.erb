@@ -1,2 +1,38 @@
-<h1>Admin::ProductTypes#index</h1>
-<p>Find me in app/views/admin/product_types/index.html.erb</p>
+<h2>Typy produktów</h2>
+
+
+
+<div>
+  <table class="table table-striped">
+  <thead>
+  <tr>
+  <th>Tytuł</th>
+  <th>Kategoria produktu</th>
+  <th>Akcje</th>
+  <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @product_types.each do |pt| %>
+      <tr>
+          <td>
+            <%= pt.name %>
+          </td>
+          <td>
+            <%= pt.product_category.name %>
+          </td>
+          <td>
+            <%= link_to "Edycja", edit_admin_product_type_path(pt), class: "btn btn-default btn-xs" %>
+            <%= link_to "Usuń", admin_product_type_path(pt), method: :delete,  class: "btn btn-danger btn-xs", data: {confirm: 'Czy na pewno chcesz usunać post?'} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>
+
+<div>
+  <%= link_to new_admin_product_type_path, class: "btn btn-primary" do %>
+  <span class="fa fa-plus"></span> Dodaj nowy typ produktu
+  <% end %>
+</div>

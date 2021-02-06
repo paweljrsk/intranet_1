@@ -1,0 +1,11 @@
+<%= simple_form_for [:admin, @product_type] do |f| %>
+<div class="form-group">
+ <%= f.input :name %>
+ <%= f.association :product_category %>
+   </div>
+
+   <div>
+ <%= f.submit "Zapisz", class: "btn btn-primary" %>
+  <%= link_to "Anuluj", :back %>
+  </div>
+<% end %>
